@@ -1,4 +1,4 @@
-package com.example.balibo_station
+package com.balibo.station
 
 import io.flutter.embedding.android.FlutterActivity
 
