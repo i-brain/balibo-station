@@ -5,7 +5,7 @@ import 'package:balibo_station/feature/order/presentation/bloc/get_active_orders
 import 'package:balibo_station/feature/order/presentation/bloc/make_order_ready/make_order_ready_bloc.dart';
 import 'package:balibo_station/feature/order/presentation/widget/orders_list_widget.dart';
 import 'package:balibo_station/feature/station/presentation/bloc/get_current_station/get_current_station_bloc.dart';
-import 'package:balibo_station/feature/table/presentation/page/tables_page.dart';
+import 'package:balibo_station/feature/table/presentation/page/tables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
