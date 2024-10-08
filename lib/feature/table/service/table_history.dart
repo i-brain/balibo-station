@@ -23,7 +23,7 @@ class TableHistoryService {
   Future<void> actiavteTable(int tableNumber) async {
     await _tableService.updateTableStatusByTableNumber(
       tableNumber,
-      TableStatusEnum.active.value,
+      TableStatusEnum.active,
     );
 
     final tableHistory = await _getTableHistoryByTableNumberAndStatus(
@@ -103,5 +103,19 @@ class TableHistoryService {
     }
 
     return null;
+  }
+
+  Future<void> updateTableHistoryStatus({
+    required String historyId,
+    required TableStatusEnum status,
+  }) async {
+    final tableHistoryCollection = await _tableHistoryCollection;
+
+    final updatedAt = DateTime.now();
+
+    await tableHistoryCollection.doc(historyId).update({
+      'updated_at': updatedAt.toIso8601String(),
+      'status': status.value,
+    });
   }
 }

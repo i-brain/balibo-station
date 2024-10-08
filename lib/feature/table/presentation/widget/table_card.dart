@@ -24,8 +24,9 @@ class TableCard extends StatelessWidget {
           color: isActive ? Colors.blue[100] : Colors.red[100],
           type: MaterialType.button,
           child: InkWell(
-            onTap: () =>
-                pushPage(context, FinishTablePage.navigate(tableNumber)),
+            onTap: isActive
+                ? () => pushPage(context, FinishTablePage.navigate(tableNumber))
+                : null,
             splashColor: Colors.green.withOpacity(0.2),
             child: Center(
               child: Text(

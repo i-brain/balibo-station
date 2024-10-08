@@ -43,7 +43,12 @@ dependencies:
   cloud_firestore: ^5.4.4
   flutter_secure_storage: ^9.2.2
   intl: ^0.19.0
-  bluetooth_thermal_printer: ^0.0.6
+  # bluetooth_thermal_printer: ^0.0.6
+  # bluetooth_thermal_printer:
+  #   git:
+  #     url: https://github.com/Rajath4/BluetoothThermalPrinter
+  #     ref: 7abaeba
+  bluetooth_print_plus: ^2.2.0
   hive: ^2.2.3
   esc_pos_utils_plus: ^2.0.3
   permission_handler: ^10.2.0

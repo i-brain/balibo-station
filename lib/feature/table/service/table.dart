@@ -50,7 +50,7 @@ class TableService {
 
   Future<void> updateTableStatusByTableNumber(
     int tableNumber,
-    int newStatus,
+    TableStatusEnum newStatus,
   ) async {
     final tableCollection = await _tableCollection;
 
@@ -62,7 +62,9 @@ class TableService {
 
       if (querySnapshot.docs.isNotEmpty) {
         DocumentSnapshot tableDoc = querySnapshot.docs.first;
-        await tableCollection.doc(tableDoc.id).update({'status': newStatus});
+        await tableCollection
+            .doc(tableDoc.id)
+            .update({'status': newStatus.value});
       } else {
         throw Exception('Table with number $tableNumber not found.');
       }

@@ -1,5 +1,6 @@
 import 'package:balibo_station/common/hive_service.dart';
 import 'package:balibo_station/feature/app/service/admin.dart';
+import 'package:balibo_station/feature/finish/service/finish_table_history.dart';
 import 'package:balibo_station/feature/login/service/login.dart';
 import 'package:balibo_station/feature/login/service/user.dart';
 import 'package:balibo_station/feature/order/service/order.dart';
@@ -50,5 +51,12 @@ void setupLocator() {
   );
   getIt.registerLazySingleton<PrinterService>(
     () => PrinterService(hiveService: getIt()),
+  );
+  getIt.registerLazySingleton<FinishTableHistoryService>(
+    () => FinishTableHistoryService(
+      printerService: getIt(),
+      tableHistoryService: getIt(),
+      tableService: getIt(),
+    ),
   );
 }
