@@ -18,6 +18,8 @@ class HiveService {
     await _printerSettings.put(HiveKeys.printReceipt, value.toString());
   }
 
+  Future<void> save(bool key, Object value) async {}
+
   String get printerUrl => _printerSettings.get(HiveKeys.printerUrl) ?? '';
 
   Future<void> savePrinterUrl(String value) async {

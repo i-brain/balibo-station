@@ -1,4 +1,5 @@
 import 'package:balibo_station/common/hive_service.dart';
+import 'package:balibo_station/feature/admin_settings/service/admin_settings.dart';
 import 'package:balibo_station/feature/app/service/admin.dart';
 import 'package:balibo_station/feature/finish/service/finish_table_history.dart';
 import 'package:balibo_station/feature/login/service/login.dart';
@@ -58,5 +59,8 @@ void setupLocator() {
       tableHistoryService: getIt(),
       tableService: getIt(),
     ),
+  );
+  getIt.registerLazySingleton<AdminSettingsService>(
+    () => AdminSettingsService(hiveService: getIt()),
   );
 }

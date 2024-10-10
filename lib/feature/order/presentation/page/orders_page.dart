@@ -1,6 +1,8 @@
 import 'package:balibo_station/core/di.dart';
 import 'package:balibo_station/core/extensions/theme_extension.dart';
 import 'package:balibo_station/core/helper_functions.dart';
+import 'package:balibo_station/feature/admin_settings/presentation/page/admin_settings.dart';
+import 'package:balibo_station/feature/admin_settings/presentation/widget/admin_parol_dialog.dart';
 import 'package:balibo_station/feature/order/presentation/bloc/get_active_orders/get_orders_bloc.dart';
 import 'package:balibo_station/feature/order/presentation/bloc/make_order_ready/make_order_ready_bloc.dart';
 import 'package:balibo_station/feature/order/presentation/widget/orders_list_widget.dart';
@@ -37,7 +39,18 @@ class OrdersPage extends StatelessWidget {
     return Stack(
       children: [
         Scaffold(
-          appBar: AppBar(title: const Text('Sifarişlər')),
+          appBar: AppBar(
+            title: InkWell(
+              overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+              onLongPress: () {
+                AdminParolDialog.show(
+                  context,
+                  () => pushPage(context, AdminSettingsPage.navigate()),
+                );
+              },
+              child: const Text('Sifarişlər'),
+            ),
+          ),
           floatingActionButton:
               BlocBuilder<GetCurrentStationBloc, GetCurrentStationState>(
             builder: (context, state) {
