@@ -2,6 +2,7 @@ import 'package:balibo_station/common/hive_service.dart';
 import 'package:balibo_station/feature/table/model/table_history.dart';
 import 'package:intl/intl.dart';
 import 'package:esc_pos_utils_plus/esc_pos_utils_plus.dart';
+import 'package:test_pack/bluetooth_thermal_printer.dart';
 
 class PrinterService {
   final HiveService _hiveService;
@@ -20,14 +21,14 @@ class PrinterService {
     // if (isConnected != 'true') {
     //   await BluetoothThermalPrinter.connect('DC:0D:30:54:DB:7D');
     // }
-    // isConnected = await BluetoothThermalPrinter.connectionStatus;
+    isConnected = await BluetoothThermalPrinter.connectionStatus;
     if (isConnected == "true") {
-      // List<int> bytes = await getTicket(
-      //   isCard: isCard,
-      //   receipt: receipt,
-      //   subtitle: subtitle,
-      // );
-      // await BluetoothThermalPrinter.writeBytes(bytes);
+      List<int> bytes = await getTicket(
+        isCard: isCard,
+        receipt: receipt,
+        subtitle: subtitle,
+      );
+      await BluetoothThermalPrinter.writeBytes(bytes);
       // print("Print $result");
     } else {
       if (_hiveService.printerUrl.isNotEmpty) {
@@ -166,10 +167,10 @@ class PrinterService {
   }
 
   static Future<bool> _setConnect(String mac) async {
-    // final String? result = await BluetoothThermalPrinter.connect(mac);
-    // if (result == "true") {
-    //   return true;
-    // }
+    final String? result = await BluetoothThermalPrinter.connect(mac);
+    if (result == "true") {
+      return true;
+    }
     return false;
   }
 }

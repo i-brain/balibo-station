@@ -44,10 +44,10 @@ dependencies:
   flutter_secure_storage: ^9.2.2
   intl: ^0.19.0
   # bluetooth_thermal_printer: ^0.0.6
-  # bluetooth_thermal_printer:
-  #   git:
-  #     url: https://github.com/Rajath4/BluetoothThermalPrinter
-  #     ref: 7abaeba
+  test_pack:
+    git:
+      url: https://github.com/Balabey-Oruc/bluetooth_printer.git
+      ref: main
   bluetooth_print_plus: ^2.2.0
   hive: ^2.2.3
   esc_pos_utils_plus: ^2.0.3
