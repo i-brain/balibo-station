@@ -1,40 +1,33 @@
 class AdminSettingsModel {
-  final bool canPrintReceipt;
+  final bool? canPrintReceipt;
+  final bool? canDeleteOrder;
 
   AdminSettingsModel({
     required this.canPrintReceipt,
+    required this.canDeleteOrder,
   });
 
   AdminSettingsModel copyWith({
     bool? canPrintReceipt,
+    bool? canDeleteOrder,
   }) {
     return AdminSettingsModel(
       canPrintReceipt: canPrintReceipt ?? this.canPrintReceipt,
+      canDeleteOrder: canDeleteOrder ?? this.canDeleteOrder,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'canPrintReceipt': canPrintReceipt,
+      'canDeleteOrder': canDeleteOrder,
     };
   }
 
   factory AdminSettingsModel.fromMap(Map<String, dynamic> map) {
     return AdminSettingsModel(
-      canPrintReceipt: map['canPrintReceipt'] as bool,
+      canPrintReceipt: map['canPrintReceipt'] as bool?,
+      canDeleteOrder: map['canDeleteOrder'] as bool?,
     );
   }
-
-  @override
-  String toString() => 'AdminSettingsModel(canPrintReceipt: $canPrintReceipt)';
-
-  @override
-  bool operator ==(covariant AdminSettingsModel other) {
-    if (identical(this, other)) return true;
-
-    return other.canPrintReceipt == canPrintReceipt;
-  }
-
-  @override
-  int get hashCode => canPrintReceipt.hashCode;
 }

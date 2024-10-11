@@ -61,6 +61,6 @@ void setupLocator() {
     ),
   );
   getIt.registerLazySingleton<AdminSettingsService>(
-    () => AdminSettingsService(hiveService: getIt()),
+    () => AdminSettingsService(adminService: getIt()),
   );
 }

@@ -1,5 +1,6 @@
 import 'package:balibo_station/feature/table/core/enum/table_history_status.dart';
 import 'package:balibo_station/feature/table/presentation/bloc/get_tables/get_tables_bloc.dart';
+import 'package:balibo_station/feature/table/presentation/widget/app_bar.dart';
 import 'package:balibo_station/feature/table/presentation/widget/table_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +12,7 @@ class TablesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Masalar')),
+        appBar: const TablesPageAppBar(),
         body: BlocBuilder<GetTablesBloc, GetTablesState>(
           builder: (context, state) {
             if (state is GetTablesSuccess) {

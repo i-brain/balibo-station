@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:test_pack/bluetooth_thermal_printer.dart';
 
 abstract class AppUtil {
   static void showSuccessSnackBar(BuildContext context) {
@@ -57,5 +58,18 @@ abstract class AppUtil {
     }
 
     return status;
+  }
+
+  static Future<List> getBluetooth() async {
+    final List? bluetooths = await BluetoothThermalPrinter.getBluetooths;
+    return bluetooths ?? [];
+  }
+
+  static Future<bool> setConnect(String mac) async {
+    final String? result = await BluetoothThermalPrinter.connect(mac);
+    if (result == "true") {
+      return true;
+    }
+    return false;
   }
 }

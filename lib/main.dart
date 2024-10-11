@@ -1,6 +1,6 @@
 import 'package:balibo_station/common/hive_service.dart';
 import 'package:balibo_station/core/di.dart';
-import 'package:balibo_station/core/util/util.dart';
+import 'package:balibo_station/core/util/app_util.dart';
 import 'package:balibo_station/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
