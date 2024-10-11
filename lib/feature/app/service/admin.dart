@@ -17,6 +17,7 @@ class AdminService {
   Future<String?> get admin async => _storage.read(key: _adminIdField);
 
   Future<void> saveAdminId(String adminId) async {
+    _adminId = adminId;
     await _storage.write(key: _adminIdField, value: adminId);
   }
 }

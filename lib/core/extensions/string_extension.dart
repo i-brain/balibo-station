@@ -12,4 +12,8 @@ extension ToDouble on String {
   int toInt() {
     return int.tryParse(this) ?? 0;
   }
+
+  bool toBool() {
+    return this == 'true';
+  }
 }
