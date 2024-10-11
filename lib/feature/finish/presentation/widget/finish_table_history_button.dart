@@ -1,4 +1,4 @@
-import 'package:balibo_station/feature/finish/presentation/bloc/bloc/finish_table_history_bloc.dart';
+import 'package:balibo_station/feature/finish/presentation/bloc/finish_table_history/finish_table_history_bloc.dart';
 import 'package:balibo_station/feature/table/model/table_history.dart';
 import 'package:balibo_station/feature/widget/custom_button.dart';
 import 'package:flutter/material.dart';

@@ -7,6 +7,11 @@ class AdminSettingsModel {
     required this.canDeleteOrder,
   });
 
+  factory AdminSettingsModel.initial() => AdminSettingsModel(
+        canPrintReceipt: false,
+        canDeleteOrder: false,
+      );
+
   AdminSettingsModel copyWith({
     bool? canPrintReceipt,
     bool? canDeleteOrder,

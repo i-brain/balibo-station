@@ -1,6 +1,6 @@
 import 'package:balibo_station/core/di.dart';
 import 'package:balibo_station/core/extensions/theme_extension.dart';
-import 'package:balibo_station/feature/finish/presentation/bloc/bloc/finish_table_history_bloc.dart';
+import 'package:balibo_station/feature/finish/presentation/bloc/finish_table_history/finish_table_history_bloc.dart';
 import 'package:balibo_station/feature/finish/presentation/widget/finish_table_history_button.dart';
 import 'package:balibo_station/feature/table/presentation/bloc/get_table_history/get_table_history_bloc.dart';
 import 'package:balibo_station/feature/receipt/presentation/widget/product_details_row.dart';
@@ -19,8 +19,11 @@ class ReceiptPage extends StatelessWidget {
             ..add(GetTableHistory(tableNumber: tableNumber)),
         ),
         BlocProvider(
-          create: (context) =>
-              FinishTableHistoryBloc(finishTableHistoryService: getIt()),
+          create: (context) => FinishTableHistoryBloc(
+            finishTableHistoryService: getIt(),
+            adminSettingsService: getIt(),
+            printerService: getIt(),
+          ),
         ),
       ],
       child: const ReceiptPage(),

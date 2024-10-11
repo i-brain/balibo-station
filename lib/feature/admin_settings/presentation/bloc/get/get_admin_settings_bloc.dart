@@ -12,8 +12,9 @@ class GetAdminSettingsBloc
     extends Bloc<GetAdminSettingsEvent, GetAdminSettingsState> {
   GetAdminSettingsBloc(this._adminSettingsService)
       : super(GetAdminSettingsInitial()) {
+    _adminSettingsService.startListeningToAdminSettings();
     _adminSettingsSubscription =
-        _adminSettingsService.getAdminSettings().listen((settings) {
+        _adminSettingsService.settingsStream.listen((settings) {
       add(_GetAdminSettingsSuccess(settings: settings));
     }, onError: (error) {
       add(_GetAdminSettingsError(message: error.toString()));
@@ -47,6 +48,7 @@ class GetAdminSettingsBloc
   @override
   Future<void> close() {
     _adminSettingsSubscription?.cancel();
+    _adminSettingsService.dispose();
     return super.close();
   }
 }
