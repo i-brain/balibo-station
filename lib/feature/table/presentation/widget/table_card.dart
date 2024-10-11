@@ -1,6 +1,6 @@
 import 'package:balibo_station/core/extensions/theme_extension.dart';
 import 'package:balibo_station/core/helper_functions.dart';
-import 'package:balibo_station/feature/table/presentation/page/finish_table.dart';
+import 'package:balibo_station/feature/receipt/presentation/page/receipt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +25,7 @@ class TableCard extends StatelessWidget {
           type: MaterialType.button,
           child: InkWell(
             onTap: isActive
-                ? () => pushPage(context, FinishTablePage.navigate(tableNumber))
+                ? () => pushPage(context, ReceiptPage.navigate(tableNumber))
                 : null,
             splashColor: Colors.green.withOpacity(0.2),
             child: Center(

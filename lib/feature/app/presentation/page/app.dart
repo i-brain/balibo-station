@@ -1,7 +1,7 @@
 import 'package:balibo_station/feature/app/presentation/widget/app_providers.dart';
 import 'package:balibo_station/feature/login/presentation/bloc/login/login_bloc.dart';
 import 'package:balibo_station/feature/login/presentation/page/login_page.dart';
-import 'package:balibo_station/feature/order/presentation/page/orders_page.dart';
+import 'package:balibo_station/feature/order/presentation/page/orders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
