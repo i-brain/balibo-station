@@ -39,6 +39,21 @@ dependencies:
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
   get_it: ^7.7.0
+  firebase_core: ^3.6.0
+  cloud_firestore: ^5.4.4
+  flutter_secure_storage: ^9.2.2
+  intl: ^0.19.0
+  # bluetooth_thermal_printer: ^0.0.6
+  test_pack:
+    git:
+      url: https://github.com/Balabey-Oruc/bluetooth_printer.git
+      ref: main
+  bluetooth_print_plus: ^2.2.0
+  hive: ^2.2.3
+  esc_pos_utils_plus: ^2.0.3
+  permission_handler: ^10.2.0
+  device_info_plus: ^9.1.2
+  hive_flutter: ^1.1.0
 
 
 dev_dependencies:

@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1050739750482",
+    "project_id": "balibo-dd7f5",
+    "storage_bucket": "balibo-dd7f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050739750482:android:3136c4c3193a244638918b",
+        "android_client_info": {
+          "package_name": "com.balibo.station"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTuzzoj0nMf5ymfABK_WaJKMEo_UAkWHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050739750482:android:feb6a10e773f977f38918b",
+        "android_client_info": {
+          "package_name": "com.balibo.waiter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTuzzoj0nMf5ymfABK_WaJKMEo_UAkWHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050739750482:android:85161f6675e90e4738918b",
+        "android_client_info": {
+          "package_name": "com.example.balibo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTuzzoj0nMf5ymfABK_WaJKMEo_UAkWHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
