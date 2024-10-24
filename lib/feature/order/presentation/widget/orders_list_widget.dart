@@ -67,9 +67,10 @@ class _OrdersList extends StatelessWidget {
             isActive: order.status == OrderStatusEnum.active.value,
             onDismissed: (_) {
               if (order.id != null) {
-                context
-                    .read<MakeOrderReadyBloc>()
-                    .add(MakeOrderReady(orderId: order.id!));
+                context.read<MakeOrderReadyBloc>().add(MakeOrderReady(
+                      id: order.id!,
+                      orderId: order.orderId,
+                    ));
               }
             },
           );
