@@ -19,7 +19,10 @@ class MakeOrderReadyBloc
   ) async {
     try {
       emit(MakeOrderReadyLoading());
-      await _orderService.makeOrderItemReady(event.orderId);
+      await _orderService.makeOrderItemReady(
+        orderId: event.orderId,
+        id: event.id,
+      );
       emit(MakeOrderReadySuccess());
     } catch (e) {
       emit(MakeOrderReadyFailure(message: e.toString()));

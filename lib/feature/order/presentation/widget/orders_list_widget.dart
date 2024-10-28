@@ -56,29 +56,28 @@ class _OrdersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 16).w,
-      sliver: SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (context, index) {
-            final order = orders[index];
-            return OrderTile(
-              table: 'Masa ${order.tableNumber}',
-              username: order.username,
-              productName: order.name,
-              productCount: order.quantity,
-              isActive: order.status == OrderStatusEnum.active.value,
-              onDismissed: (_) {
-                if (order.id != null) {
-                  context
-                      .read<MakeOrderReadyBloc>()
-                      .add(MakeOrderReady(orderId: order.id!));
-                }
-              },
-            );
-          },
-          childCount: orders.length,
-        ),
+
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          final order = orders[index];
+          return OrderTile(
+            table: 'Masa ${order.tableNumber}',
+            username: order.username,
+            productName: order.name,
+            productCount: order.quantity,
+            isActive: order.status == OrderStatusEnum.active.value,
+            onDismissed: (_) {
+              if (order.id != null) {
+                context.read<MakeOrderReadyBloc>().add(MakeOrderReady(
+                      id: order.id!,
+                      orderId: order.orderId,
+                    ));
+              }
+            },
+          );
+        },
+        childCount: orders.length,
       ),
     );
   }

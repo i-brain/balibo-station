@@ -1,5 +1,6 @@
 import 'package:balibo_station/core/di.dart';
 import 'package:balibo_station/feature/admin_settings/presentation/bloc/get/get_admin_settings_bloc.dart';
+import 'package:balibo_station/feature/connectivity/presentation/bloc/connectivity/connectivity_bloc.dart';
 import 'package:balibo_station/feature/login/presentation/bloc/login/login_bloc.dart';
 import 'package:balibo_station/feature/station/presentation/bloc/get/get_stations_bloc.dart';
 import 'package:balibo_station/feature/table/presentation/bloc/get_tables/get_tables_bloc.dart';
@@ -33,6 +34,9 @@ class AppProviders extends StatelessWidget {
         BlocProvider(
           create: (context) => GetAdminSettingsBloc(getIt()),
           lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => ConnectivityBloc(),
         ),
       ],
       child: child,

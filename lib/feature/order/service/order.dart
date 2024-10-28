@@ -8,14 +8,18 @@ class OrderService {
   final AdminService _adminService;
   final UserService _userService;
 
-  OrderService(
-      {required AdminService adminService, required UserService userService})
-      : _adminService = adminService,
+  OrderService({
+    required AdminService adminService,
+    required UserService userService,
+  })  : _adminService = adminService,
         _userService = userService;
 
   Future<CollectionReference> get _orderItemsCollection async {
     return (await _adminService.adminDoc).collection('order_items');
   }
+
+  Future<CollectionReference> get _ordersCollection async =>
+      (await _adminService.adminDoc).collection('orders');
 
   Stream<List<OrderItem>> getActiveOrders() {
     return _getOrdersByStatus(OrderStatusEnum.active.value);
@@ -40,11 +44,19 @@ class OrderService {
     });
   }
 
-  Future<void> makeOrderItemReady(String id) async {
+  Future<void> makeOrderItemReady({
+    required String id,
+    required String orderId,
+  }) async {
     final orderItemsCollection = await _orderItemsCollection;
+    final ordersCollection = await _ordersCollection;
 
     await orderItemsCollection.doc(id).update({
       'status': OrderStatusEnum.ready.value,
+      'updatedAt': FieldValue.serverTimestamp(),
+    });
+
+    await ordersCollection.doc(orderId).update({
       'updatedAt': FieldValue.serverTimestamp(),
     });
   }
