@@ -34,7 +34,7 @@ class OrderTile extends StatelessWidget {
       },
       direction: isActive ? DismissDirection.endToStart : DismissDirection.none,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4).r,
+        padding: const EdgeInsets.symmetric(vertical: 8).r,
         child: DecoratedBox(
           decoration: BoxDecoration(
             border:
@@ -42,7 +42,7 @@ class OrderTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
           ),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(8, 4, 0, 4).r,
+            padding: const EdgeInsets.fromLTRB(8, 12, 8, 8).r,
             child: Row(
               children: [
                 Expanded(
@@ -50,23 +50,19 @@ class OrderTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            table,
+                            table + ' - ',
                             style: context.style.bodyMedium?.copyWith(
                               color: context.style.bodyMedium?.color
                                   ?.withOpacity(isActive ? 1 : 0.5),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 16.0).r,
-                            child: Text(
-                              username,
-                              style: context.style.bodyMedium?.copyWith(
-                                color: context.style.bodyMedium?.color
-                                    ?.withOpacity(isActive ? 1 : 0.5),
-                              ),
+                          Text(
+                            username,
+                            style: context.style.titleSmall?.copyWith(
+                              color: context.style.bodyMedium?.color
+                                  ?.withOpacity(isActive ? 1 : 0.5),
                             ),
                           ),
                         ],
@@ -81,20 +77,17 @@ class OrderTile extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8).r,
-                  child: isActive
-                      ? Icon(
-                          Icons.circle,
-                          color: const Color.fromARGB(255, 255, 157, 59),
-                          size: 20.r,
-                        )
-                      : Icon(
-                          Icons.done,
-                          color: Colors.green.withOpacity(0.5),
-                          size: 20.r,
-                        ),
-                ),
+                isActive
+                    ? Icon(
+                        Icons.circle,
+                        color: const Color.fromARGB(255, 255, 157, 59),
+                        size: 26.r,
+                      )
+                    : Icon(
+                        Icons.check_circle,
+                        color: Colors.green.withOpacity(0.5),
+                        size: 26.r,
+                      ),
               ],
             ),
           ),

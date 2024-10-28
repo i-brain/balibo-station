@@ -17,6 +17,7 @@ class AppTheme {
         onPrimary: Colors.white,
       ),
       useMaterial3: true,
+      appBarTheme: const AppBarTheme(centerTitle: true),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: Colors.white,
